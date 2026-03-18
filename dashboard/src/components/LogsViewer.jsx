@@ -4,6 +4,21 @@ import React, { useState, useEffect } from 'react';
 
 const API_BASE = import.meta.env.VITE_FLOW2API_URL || 'http://localhost:38000';
 
+const RefreshIcon = () => (
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="23 4 23 10 17 10" />
+    <polyline points="1 20 1 14 7 14" />
+    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+  </svg>
+);
+
+const TrashIcon = () => (
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="3 6 5 6 21 6" />
+    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+  </svg>
+);
+
 export function LogsViewer() {
   const [logs, setLogs] = useState([]);
   const [filter, setFilter] = useState('all');
@@ -23,7 +38,6 @@ export function LogsViewer() {
       setLogs(data.logs || []);
     } catch (error) {
       console.error('Failed to fetch logs:', error);
-      // Use mock data for demo
       setLogs(getMockLogs());
     } finally {
       setLoading(false);
@@ -51,9 +65,9 @@ export function LogsViewer() {
         <h3>Request Logs</h3>
         <div className="panel-actions">
           <button className="btn-secondary" onClick={fetchLogs}>
-            ↻ Refresh
+            <RefreshIcon /> Refresh
           </button>
-          <button className="btn-danger">Clear All</button>
+          <button className="btn-danger"><TrashIcon /> Clear All</button>
         </div>
       </div>
 

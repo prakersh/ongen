@@ -1,5 +1,5 @@
 // Flow2API Dashboard - Main App Component
-// Aesthetic: Midnight Luxe - Dark, warm, refined
+// ui-ux-pro-max Design System: Data-Dense Dashboard
 
 import React, { useState, useEffect } from 'react';
 import { TokenPanel } from './components/TokenPanel';
