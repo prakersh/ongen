@@ -68,7 +68,7 @@ export function StatsCards({ stats }) {
               <div className="bar-track">
                 <div
                   className="bar-fill blue"
-                  style={{ width: `${Math.min((stats.imagesToday / stats.imagesTotal) * 100, 100)}%` }}
+                  style={{ width: `${stats.imagesTotal > 0 ? Math.min((stats.imagesToday / stats.imagesTotal) * 100, 100) : 0}%` }}
                 />
               </div>
               <span className="bar-value">{stats.imagesToday}</span>
@@ -78,7 +78,7 @@ export function StatsCards({ stats }) {
               <div className="bar-track">
                 <div
                   className="bar-fill violet"
-                  style={{ width: `${Math.min((stats.videosToday / stats.videosTotal) * 100, 100)}%` }}
+                  style={{ width: `${stats.videosTotal > 0 ? Math.min((stats.videosToday / stats.videosTotal) * 100, 100) : 0}%` }}
                 />
               </div>
               <span className="bar-value">{stats.videosToday}</span>
